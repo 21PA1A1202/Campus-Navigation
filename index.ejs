@@ -1,0 +1,1060 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Box Positioning</title>
+<style>
+  body{
+    background-color:white;
+    
+  }
+  #container {
+    position: relative;
+    width: 800px;
+    height: 800px;
+    
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/Frame%203%20(2)%201.png?v=1714748411938');
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+  
+  }
+
+  #box {
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FLOCATOR.png?1714315737067');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+ 
+
+  .smallBox {
+      width: 20px;
+      height: 20px;
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2Fclick.png?1714315725136');
+    background-repeat: no-repeat;
+    background-size: cover;
+      position: absolute;
+    z-index:2;
+  }
+
+  #favoriteBtn {
+      margin-top: 10px;
+  }
+  .com{
+    height:46px;
+    width:46px;
+    background-repeat: no-repeat;
+    background-size: cover;
+      position: absolute;
+  }
+  .com:hover{
+    height:60px;
+    width:60px;
+  }
+  .li{
+   
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FFrame%204.png?1714490470085');
+    top: 37%;
+    left: 55%;
+     transform: translate(-38%, -52%) ;
+  }
+  .a{
+    height:35px;
+    width:35px;
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%208.png?1714629194156');
+    top: 390px;
+    left: 532px;
+     transform: translate(-38%, -52%) ;
+  }
+  .b{
+    height:35px;
+    width:35px;
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%209.png?1714629484228');
+    top: 56%;
+    left: 64%;
+     transform: translate(-37%, -55%) ;
+  }
+  .c{
+    height:35px;
+    width:35px;
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2010.png?1714629565718');
+    top: 66%;
+    left: 60%;
+     transform: translate(-38%, -52%) ;
+  }
+  .st{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FFrame%206.png?1714631040805');
+    top: 68%;
+    left: 48%;
+     transform: translate(-38%, -52%) ;
+    height:35px;
+    width:35px;
+  }
+  .atm{
+  
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FFrame%207.png?1714631209506');
+    top: 76%;
+    left: 55%;
+     transform: translate(-38%, -52%) ;
+    height:35px;
+    width:35px;
+  }
+  .dr{
+    height:35px;
+    width:35px;
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2015.png?1714631527703');
+    top: 79%;
+      left: 51%;
+     transform: translate(-38%, -52%) ;
+  }
+  .pn{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2016.png?1714631714979');
+    top: 60%;
+    left: 78%;
+     transform: translate(-38%, -52%) ;
+  }  
+  .ws{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2017.png?1714631905596');
+    top: 335px;
+    left: 630px;
+     transform: translate(-38%, -52%) ;
+  }  
+  .pr{
+    height:55px;
+    width:55px;
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2012.png?1714630587724');
+    top: 301px;
+    left: 554px;
+     transform: translate(-38%, -52%) ;
+  }  
+  .at{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2019.png?1714632093520');
+    top: 245px;
+    left: 574px;
+     transform: translate(-38%, -52%) ;
+  }  
+  .ent{
+    height:25px;
+    width:25px;
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FFrame%208.png?1714632371590');
+    top: 261px;
+    left: 691px;
+     transform: translate(-38%, -52%) ;
+     transform: rotate(18deg);
+  }  .tt{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2020.png?1714632863387');
+    top: 216px;
+    left: 492px;
+     transform: translate(-38%, -52%) ;
+  }  .vf{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2021.png?1714632980335');
+    top: 185px;
+    left: 598px;
+     transform: translate(-38%, -52%) ;
+  }  .lvc{
+    height:42px;
+    width:42px;
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FFrame%205.png?1714630344081');
+    top: 305px;
+    left: 366px;
+     transform: translate(-38%, -52%) ;
+  }  .lv{
+    height:50px;
+    width:50px;
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2011.png?1714630047560');
+    top: 398px;
+    left: 291px;
+     transform: translate(-38%, -52%) ;
+  }
+  .ma{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2022.png?1714633121156');
+    top: 327px;
+    left: 216px;
+     transform: translate(-38%, -52%) ;
+  }
+  .gm{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2024.png?1714633393611');
+    top: 440px;
+    left: 141px;
+     transform: translate(-38%, -52%) ;
+  }  .soe{
+    height:25px;
+    width:25px;
+     background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FFrame%208.png?1714632371590');
+    top: 620px;
+    left: 465px;
+      transform: rotate(14deg);
+  }
+  .sh{
+    height:32px;
+    width:32px;
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2025.png?1714633517295');
+    top: 576px;
+    left: 290px;
+  
+  }
+  .vm{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2026.png?1714633725938');
+    top: 237px;
+    left: 309px;
+     transform: translate(-38%, -52%) ;
+  }
+  .db{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2027.png?1714633867675');
+    top: 198px;
+    left: 166px;
+   
+  }
+
+  .cg{
+    height:25px;
+    width:25px;
+     background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FFrame%208.png?1714632371590');
+    top: 120px;
+    left: 138px;
+      transform: rotate(100deg);
+    
+  }
+  .bb{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FFrame%209.png?1714633972220');
+    top: 127px;
+    left: 230px;
+
+  }
+  .vbc{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FFrame%204.png?1714490470085');
+    top: 339px;
+    left: 101px;
+
+  }
+  .sp{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FFrame%204.png?1714490470085');
+    top: 71px;
+    left: 28px;
+
+  }
+  .bu{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FFrame%204.png?1714490470085');
+    top: 285px;
+    left: 660px;
+
+  }
+  .coe{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2014.png?1714630842622');
+    top: 480px;
+    left: 350px;
+
+  }
+  .scd{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2028.png?1714639708844');
+    top: 173px;
+    left: 390px;
+
+  }
+  .cis{
+
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2029.png?1714639922705');
+    top: 119px;
+    left: 415px;
+
+  }
+  .bv{
+    height:55px;
+    width:55px;
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2030.png?1714640023703');
+    top: 87px;
+    left: 676px;
+
+  }
+  .drv{
+    height:38px;
+    width:38px;
+    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2025.png?1714633517295');
+    top: 634px;
+    left: 480px;
+
+  }
+  .i1{
+    height:55px;
+    width:90px;
+    margin-bottom:20px;
+    border-radius:4px;
+    border:1px solid #B2B3B8;
+    
+  }
+  .i2{
+    height:280px;
+    width:350px;
+    border-radius:10px;
+    border:1px solid #B2B3B8;
+  }
+  .i1:hover{
+    border:3px solid #70159B;
+  }
+  .abl{
+    height:80px;
+    width:120px;
+    
+    top: 494px;
+    left: 428px;
+     position: absolute;
+    transform: rotate(18deg);
+  }
+  .bbl{
+    height:50px;
+    width:120px;
+
+    top: 438px;
+    left: 455px;
+     position: absolute;
+    transform: rotate(17deg);
+  }
+  .cbl{
+    height:50px;
+      width:135px;
+
+    top: 384px;
+    left: 475px;
+     position: absolute;
+    transform: rotate(16deg);
+  }
+  .abl:hover .buttons1 {
+      display: block;
+  }
+  .bbl:hover .buttons1 {
+      display: block;
+  }
+  .cbl:hover .buttons1 {
+      display: block;
+  }
+  .buttons1 {
+      display: none;
+      position: absolute;
+      bottom: 10px;
+  }
+  
+
+
+  .bu1{
+    height:10px;
+    width:27px;
+    color:white;
+    background-color:black;
+    margin-left:3px;
+    font-size:8px;
+    border:none;
+  }
+  .nav 
+  {
+    height:100px;
+    width:100%;
+    display:flex;
+    flex-direction:row;
+    background-color:white;
+    position:fixed;
+    z-index:5;
+    margin-top:0px;
+    box-shadow:0px 5px 10px #888888;
+  }
+  .flex{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:row;
+  }
+  .info{
+    height:800px;
+    width:500px;
+    overflow:auto;
+    background-color:white;
+   z-index:2;
+ box-shadow:10px 0px 10px #D4D4D4;
+    position:relative;
+  }
+  .info::-webkit-scrollbar {
+      width: 5px; /* Set the width of the scrollbar */
+  }
+
+  /* Track (the part of scrollbar not being used) */
+  .info::-webkit-scrollbar-track {
+      background: white; /* Optional: Set a background color */
+  }
+
+  /* Handle (the draggable part of the scrollbar) */
+  .info::-webkit-scrollbar-thumb {
+      background: #EAEEFF; /* Optional: Set a background color */
+  }
+
+  /* Handle on hover */
+  .info::-webkit-scrollbar-thumb:hover {
+      background: #555; /* Optional: Change color on hover */
+  }
+  .container1 {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      
+      width: 475px; 
+      height: 50px; 
+      overflow-x: auto;
+    background-color:#FAF1FF;
+    border-down:1px solid black;
+    }
+  .container1::-webkit-scrollbar {
+      width: 2px;
+    height:3px;/* Set the width of the scrollbar */
+  }
+
+  /* Track (the part of scrollbar not being used) */
+  .container1::-webkit-scrollbar-track {
+    background-color:#FAF1FF; /* Optional: Set a background color */
+  }
+
+  /* Handle (the draggable part of the scrollbar) */
+  .container1::-webkit-scrollbar-thumb {
+      background:#70159B; /* Optional: Set a background color */
+  }
+
+  /* Handle on hover */
+  .container1::-webkit-scrollbar-thumb:hover {
+      background: #555; /* Optional: Change color on hover */
+  }
+  .but{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding: 10px 20px;
+    background-color: #fbfcfc;
+    color: #70159B;
+    border:2px solid #70159B;
+    border-radius: 20px;
+    margin-right: 20px;
+    height:8px;
+     text-decoration: none;
+    font-weight:900;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  .but:hover{
+    background-color:#70159B;
+    color:white;
+  }
+  .#image{
+    height:200px;
+    width:200px;
+  }
+  .f{
+    display:flex;
+    flex-direction:row;
+    align-items:center;
+    justify-content:center;
+    margin-top:23px;
+  
+  }
+  .f1{
+    display:flex;
+    flex-direction:column;
+  }
+  .si{
+    margin-left:20px;
+  }
+  .z{
+    height:800px;
+    width:800px;
+  }
+  .who{
+    width:1300px;
+    height:800px;
+    padding-top:100px;
+   
+  }
+.navi{
+  height:60px;
+  width:60px;
+  background-image:url('https://cdn.glitch.global/1dc41ed5-a288-4ef4-a1c3-e22f9d197dd0/thumbnails%2Fnavi.png?1714663836719');
+  border:0px;
+  background-repeat: no-repeat;
+    background-size: cover;
+  margin-left:20px;
+  background-color:transparent;
+  margin-top:10px;
+}
+  .navi:hover{
+    background-image:url('https://cdn.glitch.global/1dc41ed5-a288-4ef4-a1c3-e22f9d197dd0/thumbnails%2Fnavi1.png?1714663994263');
+  }
+  .fav{
+    height:60px;
+    width:60px;
+    background-image:url('https://cdn.glitch.global/1dc41ed5-a288-4ef4-a1c3-e22f9d197dd0/thumbnails%2Ffav1.png?1714664431025');
+    border:0px;
+    background-repeat: no-repeat;
+      background-size: cover;
+    margin-left:20px;
+    background-color:transparent;
+  }
+    .fav:hover{
+      background-image:url('https://cdn.glitch.global/1dc41ed5-a288-4ef4-a1c3-e22f9d197dd0/thumbnails%2Ffav2.png?1714664570900');
+    }
+.fc{
+  display:flex;
+  flex-direction:row;
+  justify-content:center;
+  align-items:center;
+}
+  .na{
+    width:280px;
+    margin-left:20px;
+    font-size:23px;
+    font-weight:800;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color:#4E0D6C;
+     
+  }
+  .pl{
+    width:470px;
+    margin-left:20px;
+    font-size:14px;
+     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+    
+  }
+  .det{
+    width:470px;
+    margin-left:20px;
+    font-size:15px;
+     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+  }
+  .ils{
+    border-top:1px solid #B3B3B3;
+     border-bottom:1px solid #B3B3B3;
+    margin-top:10px;
+    
+  }
+  .ils1{
+    
+     border-bottom:1px solid #B3B3B3;
+    margin-top:10px;
+  }
+  .rev{
+   
+    width:390px;
+   background-color:#F6E4FF;
+    padding-top:10px;
+    padding-bottom:10px;
+    margin-bottom:20px;
+    padding-left:7px;
+    border-radius:6px;
+    display:flex;
+    flex-direction:row;
+     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:12px;
+  
+    
+    
+  }
+  .prf{
+    height:35px;
+    width:35px;
+
+    margin-top:10px;
+    margin-right:10px;
+    background-image:url('https://cdn.glitch.global/1dc41ed5-a288-4ef4-a1c3-e22f9d197dd0/thumbnails%2Fprfi.png?1714671039129');
+ 
+    background-repeat: no-repeat;
+      background-size: cover;
+
+   
+    
+  }
+  .in{
+    height:40px;
+    width:360px;
+    margin-left:20px;
+    margin-bottom:25px;
+    border-radius:4px;
+   
+   border:2px solid #DDDDDD;
+    
+  }
+  .iew{
+    height:45px;
+    width:87px;
+    border-radius:4px;
+    border-color:transparent;
+    background-color:#70159B;
+    color:white;
+    font-weight:900px;
+    font-size:15px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    
+  }
+  .iew:hover{
+    color:#70159B;
+    border-color:#70159B;
+    background-color:white;
+    
+  }
+  .logo{
+    height:96px;
+    width:136px;
+    background-image:url('https://cdn.glitch.global/1dc41ed5-a288-4ef4-a1c3-e22f9d197dd0/thumbnails%2FCAMPUS%20LOGO.png?1714673065782');
+
+    background-repeat: no-repeat;
+      background-size: cover;
+    margin-left:30px;
+    margin-top:1px;
+
+  }
+  .sea{
+    height:35px;
+      width:470px;
+      
+      
+      border-radius:4px;
+
+     border:2px solid #DDDDDD;
+    margin-top:30px;
+    margin-left:280px;
+    
+  }
+  .gat{
+    height:40px;
+      width:97px;
+    margin-top:30px;
+      border-radius:4px;
+      border-color:transparent;
+      background-color:#70159B;
+      color:white;
+      font-weight:900px;
+      font-size:14px;
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  }
+  .gat:hover{
+    color:#70159B;
+    border-color:#70159B;
+    background-color:white;
+
+  }
+  .sfa{
+    height:45px;
+    width:200px;
+    margin-top:25px;
+    border-radius:27px;
+    border-color:transparent;
+    background-color:#70159B;
+    color:white;
+    font-weight:900px;
+    font-size:13px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin-left:200px;
+  }
+  .sfa:hover{
+    color:#70159B;
+    border-color:#70159B;
+    background-color:white;
+
+  }
+  .abo{
+    height:400;
+    width:100%;
+    border-top:1px solid #70159B;
+    background-color:#5D0F82;
+    margin-top:40px;
+  }
+  .crp{
+    height:200px;
+    width:1200px;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+   
+    font-size:17px;
+    
+    
+  }
+  .head{
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size:33px;
+
+    font-weight:800;
+    
+  }
+  .abo1{
+    height:400;
+    width:1200px;
+    color:white;
+  }
+  .blo{
+    height:68px;
+    width:110px;
+    border:1px solid black;
+  }
+  .blo1{
+    height:45px;
+    width:122px;
+    border:1px solid black;
+  }
+  .blo2{
+    height:51px;
+    width:141px;
+    border:1px solid black;
+  }
+
+</style>
+</head>
+<body onload="updateBoxPosition()">
+  <div class="nav"><div class="logo"></div><input class="sea" type="text" placeholder="Search Location"> <button class="gat" onclick="navigateToSecondPage()">Navigate</button><button class="sfa" id="my" >Switch to Faculty Account</button></div>
+<div class="flex">
+<div class="who flex">
+   
+   <!-- info start --><div class="info">
+
+     <div class="container1"><a href="/collection1" class="but">VIT</a>  
+     <a href="/collection2" class="but">Library</a> 
+     <a href="/collection3" class="but">A_Block</a> 
+     <a href="/collection4" class="but">B_Block</a>  
+     <a href="/collection5" class="but">C_Block</a> 
+     <a href="/collection6" class="but">Vivekanandha_statue</a> 
+     <a href="/collection7" class="but">Amul&Tandoori</a>  
+     <a href="/collection8" class="but">Drawing_Hall</a>  
+     <a href="/collection9" class="but">Vishnu_Parking</a> 
+     <a href="/collection10" class="but">Workshop</a> 
+     <a href="/collection11" class="but">Park</a> 
+     <a href="/collection12" class="but">LakeView</a> 
+     <a href="/collection13" class="but">LakeviewCanteen</a>  
+     <a href="/collection14" class="but">TeaTime</a>
+     <a href="/collection15" class="but">SouthGate</a>  
+     <a href="/collection16" class="but">SumedhaHostel</a> 
+     <a href="/collection17" class="but">VishnuFM</a> 
+     <a href="/collection18" class="but">Mini_Auditorium</a> 
+     <a href="/collection19" class="but">Green_Meadows</a> 
+     <a href="/collection20" class="but">SVEC_Entrance</a> 
+     <a href="/collection21" class="but">Sports_Complex</a>  
+     <a href="/collection23" class="but">Vishnu_Boys_Canteen</a>  
+     <a href="/collection24" class="but">Buddha_Statue</a>  
+     <a href="/collection20" class="but">Center_of_Excellence</a>  
+     <a href="/collection26" class="but">SVEC_Civil</a>  
+     <a href="/collection27" class="but">SVEC_CSE&IT</a>  
+     <a href="/collection28" class="but">BV_Raju_Park</a>  
+     <a href="/collection29" class="but">Dhruva_Hostel</a>  
+     <a href="/collection30" class="but">Bank_of_baroda_ATM</a>  
+     <a href="/collection31" class="but">CanalGate</a>  
+     <a href="/collection32" class="but">DentalBlock</a>  
+     <a href="/collection33" class="but">VishnnuSchool</a>
+</div><div>
+    <div class="f"> <div class="mi"><img class="i2" id="image" src="<%= list.length > 0 ? list[0].img1 : '' %>"  alt="Original Image"></div>
+    <div class="si f1"> <img class="i1" src="<%= list.length > 0 ? list[0].img1 : '' %>" onclick="changeImage('<%= list.length > 0 ? list[0].img1 : '' %>')" alt="dhfdks">
+     <img class="i1" src="<%= list.length > 0 ? list[0].img2 : '' %>" onclick="changeImage('<%= list.length > 0 ? list[0].img2 : '' %>')"  alt="dhfdks">
+     <img class="i1" src="<%= list.length > 0 ? list[0].img3 : '' %>" onclick="changeImage('<%= list.length > 0 ? list[0].img3 : '' %>')"  alt="dhfdks">
+     <img class="i1" src="https://cdn.glitch.global/1dc41ed5-a288-4ef4-a1c3-e22f9d197dd0/Group%2012.png?1714662932927"   alt="dhfdks"></div>
+    </div>
+</div>
+
+  <p id="demo"></p>
+  <p id="coordinates"> </p>
+
+
+  <!-- Input fields for end point x and y -->
+  <label for="endX"></label>
+   <input type="hidden" id="endX" name="endX" value="<%= list.length > 0 ? list[0].xco : '' %>" readonly> <!-- readonly to prevent user input -->
+  <label for="endY"></label>
+  <input type="hidden" id="endY" name="endY" value="<%= list.length > 0 ? list[0].yco : '' %>" readonly> <!-- readonly to prevent user input -->
+
+  <!-- Navigation button --><div class="fc">
+  <button class="navi" onclick="navigateToSecondPage()"><button class="fav" id="favoriteBtn" onclick="markFavorite()"></button><form method="POST" action="/"><div class="fc">
+
+  <p class="na"> <%= list.length > 0 ? list[0].name : '' %></p></div></div>
+
+ <div class="ils">
+    <p class="pl">Place:  <%= list.length > 0 ? list[0].name : '' %></p>
+    <p class="pl">Coordinates:  <%= list.length > 0 ? list[0].coordinates : '' %></p>
+     <p class="pl">Address:  <%= list.length > 0 ? list[0].location : '' %></p></div>
+    <div class="ils1"><p class="det"><%= list.length > 0 ? list[0].content : '' %></p></div>
+    <label for="X"> </label>
+    <input type="hidden" id="X" name="X" readonly> <!-- readonly to prevent user input -->
+    <label for="Y"></label>
+    <input type="hidden" id="Y" name="Y" readonly> 
+    <div class="comm">
+    <ul>
+        <% list.forEach(function(item) { %>
+           <div class="rev"><div class="prf"></div> <p><%= item.itemName %></p></div>
+
+        <% }); %>
+    </ul>
+       
+      <input class="in" type="text" placeholder="Enter your review" name="item">
+        
+      <% if (collectionName === 'vit') { %>
+          <input type="hidden" name="collection" value="vit">
+      <% } else if (collectionName === 'library') { %>
+          <input type="hidden" name="collection" value="library">
+        <% } else if (collectionName === 'ablock') { %>
+          <input type="hidden" name="collection" value="ablock">
+          <% } else if (collectionName === 'bblock') { %>
+            <input type="hidden" name="collection" value="bblock">
+            <% } else if (collectionName === 'cblock') { %>
+              <input type="hidden" name="collection" value="cblock">
+              <% } else if (collectionName === 'vigreenmedvekananda_statue') { %>
+                <input type="hidden" name="collection" value="vivekananda_statue">
+                <% } else if (collectionName === 'amultandoori') { %>
+                  <input type="hidden" name="collection" value="amultandoori">
+                  <% } else if (collectionName === 'drawing_hall') { %>
+                    <input type="hidden" name="collection" value="drawing_hall">
+                    <% } else if (collectionName === 'vishnu_parking') { %>
+                      <input type="hidden" name="collection" value="vishnu_parking">
+                      <% } else if (collectionName === 'workshop') { %>
+                        <input type="hidden" name="collection" value="workshop">
+                        <% } else if (collectionName === 'park') { %>
+                          <input type="hidden" name="collection" value="park">
+                          <% } else if (collectionName === 'lkv') { %>
+                            <input type="hidden" name="collection" value="lkv">
+                            <% } else if (collectionName === 'lkvcanteen') { %>
+                              <input type="hidden" name="collection" value="lkvcanteen">
+                              <% } else if (collectionName === 'ttime') { %>
+                                <input type="hidden" name="collection" value="ttime">
+                                <% } else if (collectionName === 'sgate') { %>
+                                  <input type="hidden" name="collection" value="sgate">
+                                  <% } else if (collectionName === 'sumhstl') { %>
+                                    <input type="hidden" name="collection" value="sumhstl">
+                                    <% } else if (collectionName === 'fm') { %>
+                                      <input type="hidden" name="collection" value="fm">
+                                      <% } else if (collectionName === 'minaud') { %>
+                                        <input type="hidden" name="collection" value="minaud">
+                                        <% } else if (collectionName === 'greenmed') { %>
+                                          <input type="hidden" name="collection" value="greenmed">
+                                          <% } else if (collectionName === 'svecenter') { %>
+                                            <input type="hidden" name="collection" value="svecenter">
+                                            <% } else if (collectionName === 'scmplx') { %>
+                                              <input type="hidden" name="collection" value="scmplx">
+                                              <% } else if (collectionName === 'vitbcantn') { %>
+                                                <input type="hidden" name="collection" value="vitbcantn">
+                                                <% } else if (collectionName === 'budhha') { %>
+                                                  <input type="hidden" name="collection" value="budhha">
+                                                  <% } else if (collectionName === 'coe') { %>
+                                                    <input type="hidden" name="collection" value="coe">
+                                                    <% } else if (collectionName === 'svecivil') { %>
+                                                      <input type="hidden" name="collection" value="svecivil">
+                                                      <% } else if (collectionName === 'cseitblocks') { %>
+                                                        <input type="hidden" name="collection" value="cseitblocks">
+                                                        <% } else if (collectionName === 'bvpark') { %>
+                                                          <input type="hidden" name="collection" value="bvpark">
+                                                          <% } else if (collectionName === 'dhruvhstl') { %>
+                                                            <input type="hidden" name="collection" value="dhruvhstl">
+                                                            <% } else if (collectionName === 'bbatm') { %>
+                                                              <input type="hidden" name="collection" value="bbatm">
+                                                              <% } else if (collectionName === 'canalgt') { %>
+                                                                <input type="hidden" name="collection" value="canalgt">
+                                                                <% } else if (collectionName === 'dentalblock') { %>
+                                                                  <input type="hidden" name="collection" value="dentalblock">
+                                                                  <% } else if (collectionName === 'vschool') { %>
+                                                                    <input type="hidden" name="collection" value="vschool">
+      <% } %>
+        
+      <button class="iew" type="submit">Review</button> </div>
+    
+  </form>
+
+
+      
+        
+
+         <!-- info end --></div>
+
+         <!-- mapsstart  --><div class="z">
+      <div id="container" onclick="getCoordinates(event)">
+        <div class="abl">   <img class="blo" id="image1" src="https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2031%201.png?1714800505942" >
+        <div class="buttons1">
+            <button class="bu1" onclick="changeImage1('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2031%201.png?1714800505942')">F-G</button>
+            <button class="bu1" onclick="changeImage1('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/Group%2010%201.png?v=1714800128975')">F-1</button>
+            <button class="bu1" onclick="changeImage1('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/Group%2011%201%20(1).png?v=1714799957051')">F-2</button>
+        </div></div>
+        <div class="bbl">   <img id="image2" class="blo1" src="https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2020%201%20(1).jpg?1714801341396" alt="Original Image">
+        <div class="buttons1">
+            <button class="bu1" onclick="changeImage2('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FGroup%2020%201%20(1).jpg?1714801341396')">F-G</button>
+            <button class="bu1" onclick="changeImage2('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/Group%2017%201%20(1).jpg?v=1714801117453')">F-1</button>
+            <button class="bu1" onclick="changeImage2('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/Group%2019%201.jpg?v=1714800789263')">F-2</button>
+        </div></div>
+        <div class="cbl">   <img class="blo2" id="image3" src="https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/Group%2029%201.jpg?v=1714801723754" alt="Original Image">
+        <div class="buttons1">
+            <button class="bu1" onclick="changeImage3('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/Group%2029%201.jpg?v=1714801723754')">F-G</button>
+            <button class="bu1" onclick="changeImage3('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/Group%2029%20(1)%201.jpg?v=1714801895434')">F-1</button>
+            <button class="bu1" onclick="changeImage3('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/Group%2030%20(1)%201%20(1).jpg?v=1714802214484')">F-2</button>
+        </div></div>
+       <div class="li com" onclick="window.location.href='/collection2';""></div>
+         <div class="a com" onclick="window.location.href='/collection3';""></div>
+         <div class="b com" onclick="window.location.href='/collection4';""></div>
+         <div class="c com" onclick="window.location.href='/collection5';""></div>
+         <div class="st com" onclick="window.location.href='/collection6';""></div>
+         <div class="atm com" onclick="window.location.href='/collection22';""></div>
+         <div class="dr com" onclick="window.location.href='/collection8';""></div>
+         <div class="pn com" onclick="window.location.href='/collection9';""></div>
+         <div class="ws com" onclick="window.location.href='/collection10';""></div>
+        <div class="pr com" onclick="window.location.href='/collection11';""></div>
+         <div class="at com" onclick="window.location.href='/collection7';""></div>
+         <div class="ent com" onclick="window.location.href='/collection20';""></div>
+         <div class="tt com" onclick="window.location.href='/collection14';""></div>
+         <div class="vf com" onclick="window.location.href='/collection17';""></div>
+         <div class="lvc com" onclick="window.location.href='/collection13';""></div>
+         <div class="lv com" onclick="window.location.href='/collection12';""></div>
+         <div class="ma com" onclick="window.location.href='/collection18';""></div>
+         <div class="gm com" onclick="window.location.href='/collection19';""></div>
+         <div class="soe com" onclick="window.location.href='/collection15';""></div>
+         <div class="sh com" onclick="window.location.href='/collection16';""></div>
+         <div class="vm com" onclick="window.location.href='/collection33';""></div>
+         <div class="db com" onclick="window.location.href='/collection32';""></div>
+         <div class="cg com" onclick="window.location.href='/collection31';""></div>
+         <div class="bb com" onclick="window.location.href='/collection30';""></div>
+        <div class="vbc com" onclick="window.location.href='/collection23';""></div>
+         <div class="sp com" onclick="window.location.href='/collection21';""></div>
+         <div class="bu com" onclick="window.location.href='/collection24';""></div>
+         <div class="coe com" onclick="window.location.href='/collection25';""></div>
+         <div class="scd com" onclick="window.location.href='/collection26';""></div>
+         <div class="cis com" onclick="window.location.href='/collection27';""></div>
+         <div class="bv com" onclick="window.location.href='/collection28';""></div>
+         <div class="drv com" onclick="window.location.href='/collection29';""></div>
+
+
+
+        <div id="box"></div>
+      </div></div>
+         <!-- map end --></div></div>
+        <div class="abo fc"><div class="abo1"><p class="head">About Us</p><p class="crp">Welcome to the Vishnu Institute of Technology (VIT) Campus Navigation Web Application! Designed to simplify navigation across our expansive campus, this user-friendly tool offers interactive maps, customized directions, detailed building information, and accessibility features to ensure ease of use for all. Whether you're a student, faculty member, or visitor, our application strives to enhance your experience at VIT by providing intuitive guidance and facilitating efficient exploration of our facilities. We value your feedback and continuously work to improve our services, aiming to make your time on campus as seamless and enjoyable as possible.
+        Whether you're a prospective student, a current member of the VIT community, or a visitor to our campus, we hope that our Campus Navigation Web Application enhances your experience and helps you make the most of your time at Vishnu Institute of Technology.</p></div></div>
+<script>
+  function changeImage1(imageSrc1) {
+      document.getElementById('image1').src = imageSrc1;
+  }
+  function changeImage2(imageSrc2) {
+      document.getElementById('image2').src = imageSrc2;
+  }
+  function changeImage3(imageSrc3) {
+      document.getElementById('image3').src = imageSrc3;
+  }
+  function changeImage(imageSrc) {
+      document.getElementById('image').src = imageSrc;
+  }
+  var mainBox = document.getElementById("container");
+    var counter = 0;
+    var lastMarkedLocation = null;
+function updateBoxPosition() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else { 
+    document.getElementById("demo").innerHTML = "Geolocation is not supported by this browser.";
+  }
+
+  function showPosition(position) {
+    var X = 16.5653547; //position.coords.latitude;//16.5653547;
+    var Y = 81.5219246;//position.coords.longitude;//81.5219246;
+    var h = position.coords.altitude;
+    var mx = X - 16.5637309;
+    var my = Y - 81.5194368;
+    var k = 176064.5619057447;
+
+    var xc = mx * k;
+    var yc = my * k;
+
+
+
+    var containerHeight = document.getElementById('container').offsetHeight;
+    var box = document.getElementById('box');
+    box.style.left = yc + 'px';
+    box.style.top = (containerHeight - xc) + 'px';
+
+    // Update end point coordinates
+    document.getElementById('X').value = X;
+    document.getElementById('Y').value = Y;
+  }
+}
+   // Reload location every second
+    setInterval(updateBoxPosition, 1000);
+
+    // Initial call to get location
+  updateBoxPosition();
+
+function getCoordinates(event) {
+  var box = document.getElementById('container');
+  var boxRect = box.getBoundingClientRect();
+  var offsetX2 = event.clientX - boxRect.left;
+  var offsetY2 = event.clientY - boxRect.top;
+  var k = 176064.5619057447;
+  var xk = offsetX2 / k;
+  var yk = offsetY2 / k;
+  var x = xk + 81.5194368;
+  var y = yk + 16.5637309;
+  var x1=16.5673278;
+  var y1=81.5208602;
+  var coordinates = "Coordinates: (" + offsetY2 + ", " + offsetX2 + ")";
+ 
+  
+
+
+  var offsetX1 = event.offsetX;
+  var offsetY1 = event.offsetY;
+
+  // Create a new div element (box) at the clicked location
+  var newBox = document.createElement("div");
+  newBox.className = "smallBox";
+  newBox.id = "box_" + counter;
+  counter++;
+
+  // Position the new box at the click coordinates
+  newBox.style.left = offsetX1 + "px";
+  newBox.style.top = offsetY1 + "px";
+
+  // Remove previously marked location if any
+  if (lastMarkedLocation) {
+      mainBox.removeChild(lastMarkedLocation);
+  }
+
+  // Append the new box inside the main box
+  mainBox.appendChild(newBox);
+
+  // Update the last marked location
+  lastMarkedLocation = newBox;
+}
+
+function navigateToSecondPage() {
+  var X = document.getElementById('X').value;
+    var Y = document.getElementById('Y').value;
+  var endX = document.getElementById('endX').value;
+  var endY = document.getElementById('endY').value;
+  window.location.href = `/display?X=${X}&Y=${Y}&endX=${endX}&endY=${endY}`;
+}
+  function markFavorite() {
+      if (lastMarkedLocation) {
+          // Clone the last marked location and change its color to green
+          var favoriteBox = lastMarkedLocation.cloneNode();
+        favoriteBox.style.backgroundImage = "url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/FAV%20LOCATOR.png?1714315700548')";
+        favoriteBox.style.backgroundSize = "cover";
+          favoriteBox.style.zIndex = "1"; // Ensure it's above other boxes
+
+          // Append the favorite box inside the main box
+          mainBox.appendChild(favoriteBox);
+      }
+  }
+  document.getElementById("my").addEventListener("click", function() {
+      // Replace 'https://example.com' with the URL you want to redirect to
+      window.location.href = "https://b2e8b408-8a32-4ae7-ab8a-5157d1901d1d-00-3d9ei75p62ggc.janeway.replit.dev/";
+  });
+</script>
+</body>
+</html>
