@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Navigation</title>
+    <!-- Cool Google Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bowlby+One+SC&display=swap" rel="stylesheet">
+    <!-- Our stylesheet -->
+    <style>
+      body {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: 'Montserrat', sans-serif;
+          background-color: #f4f4f4;
+        background-image:url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/back.png?v=1714737622066');
+          margin: 0;
+          height: 100vh; /* Full viewport height */
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+
+      #content_container {
+          background: white;
+          padding: 20px;
+          box-shadow: 0 14px 22px rgba(0,0,0,0.2);
+          width: 90%;
+          max-width: 400px;
+          border-radius: 8px;
+      }
+
+      #form_header_container {
+          text-align: center;
+          margin-bottom: 20px;
+      }
+
+      #form_header {
+          font-family: 'Bowlby One SC', cursive;
+          color: #333;
+      }
+
+      input {
+          margin-bottom: 10px;
+          text-align: left;
+          display: block;
+          width: calc(100% - 20px);
+          padding: 10px;
+          box-sizing: border-box;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+          transition: border-color 0.3s;
+      }
+
+      input:focus {
+          border-color: #0056b3;
+          outline: none;
+      }
+
+      #button_container {
+          margin-top: 20px;
+          text-align: center;
+          display: flex;
+          flex-direction: column;
+      }
+
+      button {
+          background-color: #70159B;
+          color: white;
+          border: none;
+          padding: 10px 20px;
+          cursor: pointer;
+          transition: background-color 0.3s;
+          border-radius: 4px;
+          margin-bottom: 10px;
+        font-weight:700;
+      }
+
+      button:hover {
+          background-color: #0056b3;
+      }
+
+      button:last-child {
+          margin-right: 0;
+          margin-bottom: 0;
+      }
+.log{
+  height:120px;
+    width:150px;
+
+    background-image:url('https://cdn.glitch.global/1dc41ed5-a288-4ef4-a1c3-e22f9d197dd0/thumbnails%2FCAMPUS%20LOGO.png?1714673065782');
+
+    background-repeat: no-repeat;
+      background-size: cover;
+}
+    </style>
+</head>
+
+<body>
+    <div id="content_container">
+        <div id="form_container">
+            <div id="form_header_container" class="log">
+                
+            </div>
+            <div id="form_content_container">
+                <div id="form_content_inner_container">
+                    <input type="text" id="full_name" placeholder="Full name">
+                    <input type="email" id="email" placeholder="Email">
+                    <input type="password" id="password" placeholder="Password">
+                    <input type="text" id="reg_no" placeholder="Register Number">
+                    <input type="text" id="New_to_Campus" placeholder="New to Campus? ( Yes | No )">
+                    <div id="button_container">
+                        <button onclick="login()">Login</button>
+                        <button onclick="register()">Register</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase JS SDK -->
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.8/firebase-database.js"></script>
+    <!-- Our script -->
+    <script src="index.js"></script>
+</body>
+</html>
