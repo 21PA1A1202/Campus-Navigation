@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-image:url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/back.png?v=1714737622066');
+       /* Full viewport height */
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: rgba(255, 255, 255, 0.8); 
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+      width: 300px;
+      text-align: center;
+    }
+    h1 {
+      color: #333333; 
+    }
+    input[type="text"],
+    input[type="password"],
+    button {
+      margin: 10px 0;
+      padding: 10px;
+      width: 100%;
+      border: none; 
+      border-radius: 6px; 
+      box-sizing: border-box;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); 
+    }
+    button {
+      background-color: #70159B; 
+      color: #ffffff;
+      cursor: pointer;
+      transition: background-color 0.3s ease; 
+      border:1px solid #70159B;
+    }
+    button:hover {
+      background-color: white; 
+      color: #70159B;
+    }
+    .message {
+      margin-top: 10px;
+      color: #ff0000; 
+      font-size: 14px; 
+    }
+    .success {
+      color: #008000; 
+      font-size: 14px; 
+    }
+    p {
+      font-family: "Times New Roman", Times, serif; 
+      font-size: 16px;
+      color: #333333; 
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Login</h1>
+    <form id="otpForm" action="/send-otp" method="POST">
+      <label for="mobileNo">Mobile No.:</label>
+      <input type="text" id="mobileNo" name="mobileNo" required><br>
+
+      <button type="button" id="getOTP">Get OTP</button>
+      <div id="otpSentPopup" style="display: none;" class="success">OTP sent to your number!</div>
+
+      <label for="otp">OTP:</label>
+      <input type="text" id="otp" name="otp" required><br>
+      <input type="hidden" id="mobileNoVerification" name="mobileNoVerification">
+
+      <button type="button" id="verifyOTP">Verify OTP</button>
+      <div id="loginSuccessPopup" style="display: none;" class="success">Login successful!</div>
+      <div id="loginErrorPopup" style="display: none;" class="message">OTP verification failed</div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("getOTP").addEventListener("click", function() {
+      var mobileNo = document.getElementById("mobileNo").value;
+      document.getElementById("mobileNoVerification").value = mobileNo;
+      fetch('/send-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ mobileNo: mobileNo })
+      })
+      .then(response => response.text())
+      .then(data => {
+        document.getElementById("otpSentPopup").style.display = "block";
+        document.getElementById("loginErrorPopup").style.display = "none";
+      })
+      .catch(error => console.error('Error:', error));
+    });
+
+    document.getElementById("verifyOTP").addEventListener("click", function() {
+      var otp = document.getElementById("otp").value;
+      var mobileNo = document.getElementById("mobileNoVerification").value;
+      fetch('/verify-otp', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ otp: otp, mobileNo: mobileNo })
+      })
+      .then(response => response.text())
+      .then(data => {
+        if (data === 'OTP verified successfully') {
+          window.location.href='https://156c94c2-1457-4890-8bd1-5e2bc0cd17d9-00-35q9ks186ghdj.janeway.replit.dev/';
+        document.getElementById("loginSuccessPopup").style.display = "block";
+          document.getElementById("otpSentPopup").style.display = "none";
+          document.getElementById("loginErrorPopup").style.display = "none";
+        } else {
+          document.getElementById("loginErrorPopup").style.display = "block";
+          document.getElementById("loginSuccessPopup").style.display = "none";
+          document.getElementById("otpSentPopup").style.display = "none";
+        }
+      })
+      .catch(error => console.error('Error:', error));
+    });
+  </script>
+</body>
+</html>

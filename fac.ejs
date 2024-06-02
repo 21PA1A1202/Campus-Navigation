@@ -1,0 +1,197 @@
+                <!DOCTYPE html>
+                <html lang="en">
+                <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <title>Box Positioning</title>
+                <style>
+                  
+                  #container {
+                    position: relative;
+                    width: 800px;
+                    height: 800px;
+                    border: 1px solid black;
+                    background-image: url('https://cdn.glitch.global/1dc41ed5-a288-4ef4-a1c3-e22f9d197dd0/Frame%203%20(2).png?v=1714729383144');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    margin-left: 100px;
+                    /* corrected margin */
+                  }
+                  .che{
+                    margin-top:33px;
+                  }
+
+                  .box {
+                    position: absolute;
+                    width: 37px;
+                    height: 37px;
+                    background-image: url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/thumbnails%2FLOCATOR.png?1714315737067');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                   color:black;
+                    font-weight:700;
+                    font-size:9px;
+                  }
+                  .box:hover{
+                    height:46px;
+                    width:46px;
+                    font-size:13px;
+                  }
+                  .logo{
+                    height:96px;
+                    width:136px;
+                    background-image:url('https://cdn.glitch.global/1dc41ed5-a288-4ef4-a1c3-e22f9d197dd0/thumbnails%2FCAMPUS%20LOGO.png?1714673065782');
+
+                    background-repeat: no-repeat;
+                      background-size: cover;
+                    margin-left:30px;
+                    margin-top:1px;
+
+                  }
+                  .sea{
+                    height:35px;
+                      width:600px;
+                    display:flex;
+                    align-items:center;
+                    justify-content:center;
+                    font-size:28px;
+                    font-weight:1000;
+                    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                     color:#70159B;
+                    margin-top:30px;
+                    margin-left:280px;
+
+                  }
+                  .gat{
+                    height:40px;
+                      width:97px;
+                    margin-top:30px;
+                      border-radius:4px;
+                      border-color:transparent;
+                      background-color:#70159B;
+                      color:white;
+                      font-weight:900px;
+                      font-size:14px;
+                      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                  }
+                  .gat:hover{
+                    color:#70159B;
+                    border-color:#70159B;
+                    background-color:white;
+
+                  }
+                  .sfa{
+                    height:45px;
+                    width:200px;
+                    margin-top:25px;
+                    border-radius:27px;
+                    border-color:transparent;
+                    background-color:#70159B;
+                    color:white;
+                    font-weight:900px;
+                    font-size:13px;
+                    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+                    margin-left:200px;
+                  }
+                  .sfa:hover{
+                    color:#70159B;
+                    border-color:#70159B;
+                    background-color:white;
+
+                  } .nav 
+                  {
+                    height:100px;
+                    width:100%;
+                    display:flex;
+                    flex-direction:row;
+                    background-color:white;
+
+                    z-index:5;
+                    margin-top:0px;
+                    box-shadow:0px 5px 10px #888888;
+                    position:fixed;
+                  }
+                 .on{
+                   height:100px;
+                   width:100px;
+                   display:flex;
+                   align-items:center;
+                   justify-content:center;
+                   background-color:#70159B;
+                   color:white;
+                  font-size:18px;
+                   font-weight:200;
+                   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+border-color:transparent;
+                 }
+                  .on:hover{
+                    background-color:white;
+                    border:1px solid #70159B;
+                    color:#70159B;
+                  }
+                </style>
+                <script>
+                function updateBoxPosition() {
+                  if (navigator.geolocation) {
+                    navigator.geolocation.getCurrentPosition(showPosition);
+                  } else { 
+                    document.getElementById("demo").innerHTML = "Geolocation is not supported by this browser.";
+                  }
+
+                  function showPosition(position) {
+                    var X= position.coords.latitude; // Change the number inside to get more decimal places
+                    var Y = position.coords.longitude; 
+                    var h = position.coords.altitude;
+                    var mx = X - 16.5637309;
+                    var my = Y - 81.5194368;
+                    var k = 176064.5619057447;
+
+                    var containerHeight = document.getElementById('container').offsetHeight;
+
+                    var boxes = document.getElementsByClassName('box');
+                    for (var i = 0; i < boxes.length; i++) {
+                      var xc = parseFloat(boxes[i].getAttribute('data-x'));
+                      var yc = parseFloat(boxes[i].getAttribute('data-y'));
+                      boxes[i].style.left = yc + 'px';
+                      boxes[i].style.top = (containerHeight - xc) + 'px';
+                    }
+
+                    
+                    document.getElementById('X').value = X;
+                    document.getElementById('Y').value = Y;
+                  }
+                }
+                </script>
+                </head>
+                <body onload="updateBoxPosition()">
+                  <div class="nav"> <button id="myButton" class="on"><- Back</button><div class="logo"></div><div class="sea">FACULTY ACCOUNT</div></div>
+                  <form method="get" action="/">
+                    <div id="container" onclick="getCoordinates(event)">
+                      <% for(let i = 0; i < data.length; i++) { %>
+                        <a class="button" href="/viewMore/<%= data[i]._id %>"><div class="box" data-x="<%= data[i].x1 || '' %>" data-y="<%= data[i].y1 || '' %>">
+                        <label for="X"></label>
+                        <input type="hidden" name="X" value="<%= data[i].x1 || '' %>" readonly>
+                        <label for="Y"></label>
+                        <input type="hidden" name="Y" value="<%= data[i].y1 || '' %>" readonly>
+                          <p class="che"><%= data[i].na%></p>
+                      
+                      </div> </a>
+                      <% } %>
+                    </div>
+
+                    <div>
+                      <p id="demo"></p>
+                      <p id="coordinates"></p>
+               
+                    </div>
+                  </form>
+                       
+                        <script>
+                          document.getElementById("myButton").addEventListener("click", function() {
+                              // Replace 'https://example.com' with the URL you want to redirect to
+                              window.location.href = "https://67da0626-dfd1-4093-ba41-3df44e69b1cf-00-p7vnztgv0wid.pike.replit.dev/";
+                          });
+                        </script>
+                </body>
+                </html>

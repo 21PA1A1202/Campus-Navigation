@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #f0f0f0;
+       background-image:url('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/back.png?v=1714737622066');
+      background-repeat:no-repeat;
+      background-size:cover;
+    }
+
+    .main {
+      box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+      height: auto;
+      width: 30%;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 6px;
+      text-align: left;
+    }
+
+
+
+    button {
+       height:60px;
+                         width:100px;
+      border-radius:6px;
+                         display:flex;
+                         align-items:center;
+                         justify-content:center;
+                         background-color:#70159B;
+                         color:white;
+                        font-size:14px;
+                         font-weight:400;
+                         font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      border-color:transparent;
+    }
+
+    button:hover {
+      background-color:white;
+      border:1px solid #70159B;
+      color:#70159B;
+    }
+
+    .p{
+      font-weight:100;
+    }
+
+    a {
+      text-decoration: none; 
+      color: inherit; 
+    }
+    .gh{
+       font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      font-weight:600;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="main"> 
+    <div style="display:flex; flex-direction:column;">
+     <div class="gh"> <p><span>Name :</span><span class="p"> <%= data.na %></span></p>
+       <p><span>Register no. :</span><span class="p"> <%= data.rn %></span></p>
+      <p><span>Active at :</span><span class="p"> <%= data.ti %></span></p>
+      <p><span>Date :</span><span class="p"> <%= data.da %></span></p>
+      <p><span>Location:</span> (<span class="p"> <%= data.lat %></span>, <span class="p"><%= data.lon %></span> )</p></div>
+     <a href="https://156c94c2-1457-4890-8bd1-5e2bc0cd17d9-00-35q9ks186ghdj.janeway.replit.dev/">
+       <button><-- Back</button>
+     </a>
+    </div>
+  </div>
+
+</body>
+</html>
