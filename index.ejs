@@ -721,45 +721,19 @@
 </style>
 </head>
 <body onload="updateBoxPosition()">
-  <div class="nav"><div class="logo"></div><input class="sea" type="text" placeholder="Search Location"> <button class="gat" onclick="navigateToSecondPage()">Navigate</button><button class="sfa" id="my" >Switch to Faculty Account</button></div>
+  <div class="nav"><div class="logo"></div><input class="sea" type="text" id="searchInput" placeholder="Search Location" onkeyup="searchLocations()"> 
+<button class="gat" onclick="navigateToSecondPage()">Navigate</button><button class="sfa" id="my" >Switch to Faculty Account</button></div>
 <div class="flex">
 <div class="who flex">
    
    <!-- info start --><div class="info">
 
-     <div class="container1"><a href="/collection1" class="but">VIT</a>  
-     <a href="/collection2" class="but">Library</a> 
-     <a href="/collection3" class="but">A_Block</a> 
-     <a href="/collection4" class="but">B_Block</a>  
-     <a href="/collection5" class="but">C_Block</a> 
-     <a href="/collection6" class="but">Vivekanandha_statue</a> 
-     <a href="/collection7" class="but">Amul&Tandoori</a>  
-     <a href="/collection8" class="but">Drawing_Hall</a>  
-     <a href="/collection9" class="but">Vishnu_Parking</a> 
-     <a href="/collection10" class="but">Workshop</a> 
-     <a href="/collection11" class="but">Park</a> 
-     <a href="/collection12" class="but">LakeView</a> 
-     <a href="/collection13" class="but">LakeviewCanteen</a>  
-     <a href="/collection14" class="but">TeaTime</a>
-     <a href="/collection15" class="but">SouthGate</a>  
-     <a href="/collection16" class="but">SumedhaHostel</a> 
-     <a href="/collection17" class="but">VishnuFM</a> 
-     <a href="/collection18" class="but">Mini_Auditorium</a> 
-     <a href="/collection19" class="but">Green_Meadows</a> 
-     <a href="/collection20" class="but">SVEC_Entrance</a> 
-     <a href="/collection21" class="but">Sports_Complex</a>  
-     <a href="/collection23" class="but">Vishnu_Boys_Canteen</a>  
-     <a href="/collection24" class="but">Buddha_Statue</a>  
-     <a href="/collection20" class="but">Center_of_Excellence</a>  
-     <a href="/collection26" class="but">SVEC_Civil</a>  
-     <a href="/collection27" class="but">SVEC_CSE&IT</a>  
-     <a href="/collection28" class="but">BV_Raju_Park</a>  
-     <a href="/collection29" class="but">Dhruva_Hostel</a>  
-     <a href="/collection30" class="but">Bank_of_baroda_ATM</a>  
-     <a href="/collection31" class="but">CanalGate</a>  
-     <a href="/collection32" class="but">DentalBlock</a>  
-     <a href="/collection33" class="but">VishnnuSchool</a>
-</div><div>
+     <div class="container1" id="locationList">
+  <% collectionNames.forEach((name, index) => { %>
+    <a href="/collection<%= index + 1 %>" class="but location-item"><%= name.replace(/_/g, ' ') %></a>
+  <% }); %>
+</div>
+
     <div class="f"> <div class="mi"><img class="i2" id="image" src="<%= list.length > 0 ? list[0].img1 : '' %>"  alt="Original Image"></div>
     <div class="si f1"> <img class="i1" src="<%= list.length > 0 ? list[0].img1 : '' %>" onclick="changeImage('<%= list.length > 0 ? list[0].img1 : '' %>')" alt="dhfdks">
      <img class="i1" src="<%= list.length > 0 ? list[0].img2 : '' %>" onclick="changeImage('<%= list.length > 0 ? list[0].img2 : '' %>')"  alt="dhfdks">
@@ -802,71 +776,8 @@
        
       <input class="in" type="text" placeholder="Enter your review" name="item">
         
-      <% if (collectionName === 'vit') { %>
-          <input type="hidden" name="collection" value="vit">
-      <% } else if (collectionName === 'library') { %>
-          <input type="hidden" name="collection" value="library">
-        <% } else if (collectionName === 'ablock') { %>
-          <input type="hidden" name="collection" value="ablock">
-          <% } else if (collectionName === 'bblock') { %>
-            <input type="hidden" name="collection" value="bblock">
-            <% } else if (collectionName === 'cblock') { %>
-              <input type="hidden" name="collection" value="cblock">
-              <% } else if (collectionName === 'vigreenmedvekananda_statue') { %>
-                <input type="hidden" name="collection" value="vivekananda_statue">
-                <% } else if (collectionName === 'amultandoori') { %>
-                  <input type="hidden" name="collection" value="amultandoori">
-                  <% } else if (collectionName === 'drawing_hall') { %>
-                    <input type="hidden" name="collection" value="drawing_hall">
-                    <% } else if (collectionName === 'vishnu_parking') { %>
-                      <input type="hidden" name="collection" value="vishnu_parking">
-                      <% } else if (collectionName === 'workshop') { %>
-                        <input type="hidden" name="collection" value="workshop">
-                        <% } else if (collectionName === 'park') { %>
-                          <input type="hidden" name="collection" value="park">
-                          <% } else if (collectionName === 'lkv') { %>
-                            <input type="hidden" name="collection" value="lkv">
-                            <% } else if (collectionName === 'lkvcanteen') { %>
-                              <input type="hidden" name="collection" value="lkvcanteen">
-                              <% } else if (collectionName === 'ttime') { %>
-                                <input type="hidden" name="collection" value="ttime">
-                                <% } else if (collectionName === 'sgate') { %>
-                                  <input type="hidden" name="collection" value="sgate">
-                                  <% } else if (collectionName === 'sumhstl') { %>
-                                    <input type="hidden" name="collection" value="sumhstl">
-                                    <% } else if (collectionName === 'fm') { %>
-                                      <input type="hidden" name="collection" value="fm">
-                                      <% } else if (collectionName === 'minaud') { %>
-                                        <input type="hidden" name="collection" value="minaud">
-                                        <% } else if (collectionName === 'greenmed') { %>
-                                          <input type="hidden" name="collection" value="greenmed">
-                                          <% } else if (collectionName === 'svecenter') { %>
-                                            <input type="hidden" name="collection" value="svecenter">
-                                            <% } else if (collectionName === 'scmplx') { %>
-                                              <input type="hidden" name="collection" value="scmplx">
-                                              <% } else if (collectionName === 'vitbcantn') { %>
-                                                <input type="hidden" name="collection" value="vitbcantn">
-                                                <% } else if (collectionName === 'budhha') { %>
-                                                  <input type="hidden" name="collection" value="budhha">
-                                                  <% } else if (collectionName === 'coe') { %>
-                                                    <input type="hidden" name="collection" value="coe">
-                                                    <% } else if (collectionName === 'svecivil') { %>
-                                                      <input type="hidden" name="collection" value="svecivil">
-                                                      <% } else if (collectionName === 'cseitblocks') { %>
-                                                        <input type="hidden" name="collection" value="cseitblocks">
-                                                        <% } else if (collectionName === 'bvpark') { %>
-                                                          <input type="hidden" name="collection" value="bvpark">
-                                                          <% } else if (collectionName === 'dhruvhstl') { %>
-                                                            <input type="hidden" name="collection" value="dhruvhstl">
-                                                            <% } else if (collectionName === 'bbatm') { %>
-                                                              <input type="hidden" name="collection" value="bbatm">
-                                                              <% } else if (collectionName === 'canalgt') { %>
-                                                                <input type="hidden" name="collection" value="canalgt">
-                                                                <% } else if (collectionName === 'dentalblock') { %>
-                                                                  <input type="hidden" name="collection" value="dentalblock">
-                                                                  <% } else if (collectionName === 'vschool') { %>
-                                                                    <input type="hidden" name="collection" value="vschool">
-      <% } %>
+      
+       <input type="hidden" name="collection" value="<%= collectionName %>">
         
       <button class="iew" type="submit">Review</button> </div>
     
@@ -898,38 +809,14 @@
             <button class="bu1" onclick="changeImage3('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/Group%2029%20(1)%201.jpg?v=1714801895434')">F-1</button>
             <button class="bu1" onclick="changeImage3('https://cdn.glitch.global/9f95c3be-0c48-46c9-8b40-d74b53343ff3/Group%2030%20(1)%201%20(1).jpg?v=1714802214484')">F-2</button>
         </div></div>
-       <div class="li com" onclick="window.location.href='/collection2';""></div>
-         <div class="a com" onclick="window.location.href='/collection3';""></div>
-         <div class="b com" onclick="window.location.href='/collection4';""></div>
-         <div class="c com" onclick="window.location.href='/collection5';""></div>
-         <div class="st com" onclick="window.location.href='/collection6';""></div>
-         <div class="atm com" onclick="window.location.href='/collection22';""></div>
-         <div class="dr com" onclick="window.location.href='/collection8';""></div>
-         <div class="pn com" onclick="window.location.href='/collection9';""></div>
-         <div class="ws com" onclick="window.location.href='/collection10';""></div>
-        <div class="pr com" onclick="window.location.href='/collection11';""></div>
-         <div class="at com" onclick="window.location.href='/collection7';""></div>
-         <div class="ent com" onclick="window.location.href='/collection20';""></div>
-         <div class="tt com" onclick="window.location.href='/collection14';""></div>
-         <div class="vf com" onclick="window.location.href='/collection17';""></div>
-         <div class="lvc com" onclick="window.location.href='/collection13';""></div>
-         <div class="lv com" onclick="window.location.href='/collection12';""></div>
-         <div class="ma com" onclick="window.location.href='/collection18';""></div>
-         <div class="gm com" onclick="window.location.href='/collection19';""></div>
-         <div class="soe com" onclick="window.location.href='/collection15';""></div>
-         <div class="sh com" onclick="window.location.href='/collection16';""></div>
-         <div class="vm com" onclick="window.location.href='/collection33';""></div>
-         <div class="db com" onclick="window.location.href='/collection32';""></div>
-         <div class="cg com" onclick="window.location.href='/collection31';""></div>
-         <div class="bb com" onclick="window.location.href='/collection30';""></div>
-        <div class="vbc com" onclick="window.location.href='/collection23';""></div>
-         <div class="sp com" onclick="window.location.href='/collection21';""></div>
-         <div class="bu com" onclick="window.location.href='/collection24';""></div>
-         <div class="coe com" onclick="window.location.href='/collection25';""></div>
-         <div class="scd com" onclick="window.location.href='/collection26';""></div>
-         <div class="cis com" onclick="window.location.href='/collection27';""></div>
-         <div class="bv com" onclick="window.location.href='/collection28';""></div>
-         <div class="drv com" onclick="window.location.href='/collection29';""></div>
+        <div class="map-container">
+    <% const collectionLinks = [
+      "li", "a", "b", "c", "st", "atm", "dr", "pn", "ws", "pr", "at", "ent", "tt", "vf", "lvc", "lv", "ma", "gm", "soe", "sh", "vm", "db", "cg", "bb", "vbc", "sp", "bu", "coe", "scd", "cis", "bv", "drv"
+    ];
+    collectionLinks.forEach((cls, index) => { %>
+      <div class="<%= cls %> com" onclick="window.location.href='/collection<%= index + 2 %>';"></div>
+    <% }); %>
+  </div>
 
 
 
@@ -1039,6 +926,18 @@ function navigateToSecondPage() {
   var endY = document.getElementById('endY').value;
   window.location.href = `/display?X=${X}&Y=${Y}&endX=${endX}&endY=${endY}`;
 }
+function searchLocations() {
+  let input = document.getElementById('searchInput').value.toLowerCase();
+  let items = document.querySelectorAll('.location-item'); 
+  items.forEach(item => {
+    if (item.textContent.toLowerCase().includes(input)) {
+      item.style.display = "block";  // Show matching locations
+    } else {
+      item.style.display = "none";   // Hide non-matching locations
+    }
+  });
+}
+
   function markFavorite() {
       if (lastMarkedLocation) {
           // Clone the last marked location and change its color to green
