@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
-const User = require("./models/User"); // User model for MongoDB
+const User = require("./models/User"); 
 
 const app = express();
 app.set("view engine", "ejs");
